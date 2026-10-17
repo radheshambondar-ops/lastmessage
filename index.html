@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#211827">
+
+<title>For Aditi ❤️ — Our Little Storybook</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Parisienne&display=swap');
+
+:root {
+  --night: #211827;
+  --paper: #fff9f0;
+  --ink: #342632;
+  --rose: #d5a8bc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--night);
+  color: #f8edf2;
+  font-family: "DM Sans", sans-serif;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 3px solid #edc4d6;
+  outline-offset: 4px;
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 17% 13%, #98658b55, transparent 38%),
+    radial-gradient(ellipse at 85% 76%, #5e609055, transparent 40%),
+    linear-gradient(145deg, #17131e, #302236 58%, #211a2b);
+}
+
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .6;
+  background-image:
+    radial-gradient(1px 1px at 8% 18%, white 98%, transparent),
+    radial-gradient(1px 1px at 24% 75%, #f2d6e1 98%, transparent),
+    radial-gradient(1.5px 1.5px at 48% 23%, white 98%, transparent),
+    radial-gradient(1px 1px at 72% 11%, #f2d6e1 98%, transparent),
+    radial-gradient(1px 1px at 91% 53%, white 98%, transparent);
+  animation: twinkle 5s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .25; }
+  to { opacity: .8; }
+}
+
+/* FIRST OPENING SCREEN */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(ellipse at 50% 35%, #62415f88, transparent 55%),
+    linear-gradient(145deg, #17131e, #302236, #211827);
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.intro.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-content {
+  width: min(440px, 100%);
+  text-align: center;
+  animation: introAppear 1.2s ease both;
+}
+
+@keyframes introAppear {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.intro-flower {
+  color: #e5b8ca;
+  font-size: 65px;
+  animation: flowerFloat 4s ease-in-out infinite;
+}
+
+@keyframes flowerFloat {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-9px) rotate(5deg); }
+}
+
+.intro-kicker {
+  margin-top: 15px;
+  color: #d5a8bc;
+  font-size: 10px;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  margin: 20px 0 12px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(43px, 10vw, 68px);
+  font-weight: 400;
+  line-height: .98;
+}
+
+.intro h1 span {
+  font-family: "Parisienne", cursive;
+  color: #e8b8cd;
+}
+
+.intro p {
+  margin: 20px auto 27px;
+  max-width: 300px;
+  color: #c9b9cb;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.open-story {
+  border: 1px solid #e6bfd0;
+  border-radius: 999px;
+  padding: 15px 25px;
+  color: #332337;
+  background: linear-gradient(135deg, #f5dce6, #d9aabe);
+  box-shadow: 0 0 30px #e6a9c533;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.open-story:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 42px #e6a9c566;
+}
+
+.intro-note {
+  margin-top: 20px;
+  color: #a995ad;
+  font-size: 10px;
+  letter-spacing: .08em;
+}
+
+/* MAIN STORYBOOK */
+
+.wrap {
+  width: min(900px, 100%);
+  margin: auto;
+  padding: 20px 16px 45px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: #e8d9e6;
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.tool, .music-toggle {
+  border: 1px solid #806780;
+  border-radius: 999px;
+  padding: 9px 13px;
+  background: #302438;
+  color: #f6e9f0;
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.hero {
+  padding: 34px 8px 24px;
+  text-align: center;
+}
+
+.kicker {
+  color: #d5a8bc;
+  font-size: 10px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+}
+
+.hero h2 {
+  margin: 14px 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(42px, 8vw, 65px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.hero p {
+  max-width: 400px;
+  margin: auto;
+  color: #c9b9cb;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.stage {
+  width: min(560px, 100%);
+  margin: auto;
+  perspective: 1600px;
+}
+
+.book {
+  position: relative;
+  height: 590px;
+  filter: drop-shadow(0 25px 25px #08050b77);
+}
+
+.sheet {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  padding: 37px 35px;
+  border: 1px solid #ddc7bc;
+  border-radius: 8px 17px 17px 8px;
+  background: linear-gradient(110deg, #f4e8de, #fffaf2 14%, #fffaf2);
+  color: var(--ink);
+  transform-origin: left center;
+  backface-visibility: hidden;
+}
+
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border: 1px solid #ead5cb;
+  pointer-events: none;
+}
+
+.sheet-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: pageAppear .5s ease both;
+}
+
+@keyframes pageAppear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cover {
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 40%, #e8c9d355, transparent 45%),
+    linear-gradient(145deg, #fffaf2, #f1dfdf);
+}
+
+.cover .sheet-content {
+  align-items: center;
+}
+
+.flower {
+  color: #b87589;
+  font-size: 53px;
+}
+
+.label {
+  color: #b17689;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.sheet h2 {
+  margin: 14px 0 18px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(28px, 5vw, 37px);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.cover h2 {
+  font-size: clamp(43px, 7vw, 57px);
+}
+
+.sub {
+  max-width: 290px;
+  color: #8b6d7c;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.primary {
+  margin-top: 17px;
+  padding: 13px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: #35243c;
+  color: #fff8f2;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+}
+
+.text {
+  margin: 0;
+  color: #594a54;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.note {
+  margin-top: 17px;
+  color: #a18891;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.pageno {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  text-align: center;
+  color: #ae8f96;
+  font-size: 10px;
+}
+
+.flipping {
+  animation: turnPage .65s ease-in forwards;
+  pointer-events: none;
+}
+
+@keyframes turnPage {
+  0% { transform: rotateY(0); }
+  100% { transform: rotateY(-180deg); }
+}
+
+.navrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 19px;
+}
+
+.nav {
+  min-width: 110px;
+  padding: 11px;
+  border: 1px solid #bda1b8;
+  border-radius: 999px;
+  background: #382a40;
+  color: #fff5f1;
+  font-size: 12px;
+}
+
+.nav:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+.count {
+  min-width: 65px;
+  text-align: center;
+  color: #e2d1e0;
+  font-size: 12px;
+}
+
+.chapters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+
+.chapter {
+  padding: 8px 11px;
+  border: 1px solid #6d576e;
+  border-radius: 999px;
+  background: #30263a;
+  color: #e9dbe7;
+  font-size: 11px;
+}
+
+.chapter[aria-current="page"] {
+  background: #e9d6df;
+  color: #342536;
+}
+
+/* PHOTO GALLERY */
+
+.gallerybox {
+  margin: 30px auto 0;
+  padding: 18px;
+  border: 1px solid #6a536b;
+  border-radius: 18px;
+  background: #2c2234dd;
+}
+
+.gallerybox h2 {
+  margin: 0 0 8px;
+  color: #f5e9f1;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.gallerybox p {
+  color: #c8b7cb;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.polaroid {
+  min-width: 0;
+  padding: 8px 8px 15px;
+  background: #fffaf2;
+  box-shadow: 0 8px 20px #08050b33;
+  transform: rotate(-2deg);
+  transition: transform .3s;
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.polaroid:hover {
+  transform: rotate(0) translateY(-4px);
+}
+
+.polaroid img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: contain;
+  background: #211a2b;
+  cursor: zoom-in;
+}
+
+.polaroid figcaption {
+  padding-top: 10px;
+  color: #806775;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+.footer {
+  margin: 25px auto 0;
+  color: #b6a5b9;
+  font-size: 11px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* FLOATING HEARTS */
+
+.heart-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.float-heart {
+  position: absolute;
+  bottom: -30px;
+  color: #e9a8c2;
+  opacity: 0;
+  animation: heartRise var(--duration) linear forwards;
+}
+
+@keyframes heartRise {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: .6; }
+  100% { transform: translateY(-105vh) rotate(35deg); opacity: 0; }
+}
+
+/* FULL-SCREEN PHOTO VIEWER */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #100c16ed;
+}
+
+.lightbox.visible {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.lightbox button {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  border: 1px solid #806780;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  background: #302438;
+  color: white;
+  font-size: 22px;
+}
+
+@media(max-width: 600px) {
+  .wrap { padding: 15px 12px 30px; }
+  .hero { padding: 28px 8px 20px; }
+  .book { height: 610px; }
+  .sheet { padding: 31px 25px; }
+  .text { font-size: 16px; }
+  .navrow { gap: 6px; }
+  .nav { min-width: 92px; padding: 10px 7px; }
+  .gallerybox { padding: 14px 11px; }
+  .polaroid img { height: 135px; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="heart-layer" id="heartLayer" aria-hidden="true"></div>
+
+<!-- OPENING SCREEN -->
+<section class="intro" id="intro">
+  <div class="intro-content">
+    <div class="intro-flower">❀</div>
+    <div class="intro-kicker">A little something for you</div>
+
+    <h1>For <span>Aditi</span> ❤️</h1>
+
+    <p>
+      Some memories deserve their own little place.<br>
+      This one is for you.
+    </p>
+
+    <button class="open-story" id="openStory" type="button">
+      OPEN OUR STORY ❤️
+    </button>
+
+    <div class="intro-note">A SONG · A FEW MEMORIES · OUR LITTLE STORYBOOK</div>
+  </div>
+</section>
+
+<main class="wrap" id="mainContent">
+
+  <header class="top">
+    <span>✦ A little storybook ✦</span>
+    <button class="music-toggle" id="musicBtn" type="button">
+      ♫ Play our song
+    </button>
+  </header>
+
+  <section class="hero">
+    <div class="kicker">A small place for a big story</div>
+    <h2>For Aditi,<br>with love.</h2>
+    <p>
+      Memories, messy words, and little moments kept in one place.
+      Turn each page at your own pace.
+    </p>
+  </section>
+
+  <section class="stage" aria-label="Interactive storybook">
+    <div class="book" id="book"></div>
+  </section>
+
+  <div class="navrow">
+    <button class="nav" id="prev" type="button" disabled>← Previous</button>
+    <span class="count" id="count">Cover</span>
+    <button class="nav" id="next" type="button">Turn page →</button>
+  </div>
+
+  <nav class="chapters" id="chapters" aria-label="Story chapters"></nav>
+
+  <section class="gallerybox">
+    <h2>Little memories 🌷</h2>
+    <p>A few little snapshots, kept close.</p>
+
+    <div class="gallery">
+      <figure class="polaroid">
+        <img src="assets/images/784979590_1811748003312473_6186390477373591_n.jpg"
+             alt="Little memory one" loading="lazy">
+        <figcaption>Little memories ♡</figcaption>
+      </figure>
+
+      <figure class="polaroid">
+        <img src="assets/images/785058701_1067412356103321_2300874820937674976_n.jpg"
+             alt="Little memory two" loading="lazy">
+        <figcaption>Growing up ✨</figcaption>
+      </figure>
+
+      <figure class="polaroid">
+        <img src="assets/images/786266052_2866389557050952_7369720566905007741_n.jpg"
+             alt="Little memory three" loading="lazy">
+        <figcaption>Little sunshine 🌷</figcaption>
+      </figure>
+
+      <figure class="polaroid">
+        <img src="assets/images/787408236_1568533388299873_3415105679331020739_n.jpg"
+             alt="Little memory four" loading="lazy">
+        <figcaption>Always a memory ♡</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <p class="footer">
+    Made of little memories and words that were hard to say. ♡
+  </p>
+</main>
+
+<!-- YOUR SONG -->
+<audio id="bgMusic" src="assets/audio/our-song.mp3"
+       loop preload="auto"></audio>
+
+<!-- PHOTO VIEWER -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true"
+     aria-label="Photo viewer">
+  <button id="closeLightbox" type="button" aria-label="Close photo">×</button>
+  <img id="lightboxImage" src="" alt="Enlarged memory">
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+
+  const intro = $("intro");
+  const openStory = $("openStory");
+  const audio = $("bgMusic");
+  const musicBtn = $("musicBtn");
+  const book = $("book");
+  const prev = $("prev");
+  const next = $("next");
+  const count = $("count");
+  const chapters = $("chapters");
+
+  /*
+    Keep your personal messages in this array.
+    Each page becomes a separate storybook chapter.
+  */
+  const pages = [
+    {
+      chapter: "The little things",
+      title: "Jab mein ruth jata hu",
+      text: `jab mein ruth jata hu
+koi naii manata
+jisko apni jindagi mana tha vo bhi nai
+ik tuze kabhi meri kamii mehsoos nahi hogi tu khush hai tere dosto ke sath pr mera kya yaarwr, kisi ne kabhi mere bare mein nahi socha
+mene sirf tumse pyaar kiya hamesha
+kitne dinnn hue mein tumhe mana rha hu aur tuhe yeh sbb natak lagta hai
+tune mere alawa sabki suni
+ekk akhri baar maann ja tera hii toh hu
+u didn't cheat but u could sleep peacefully while i was crying about ur unfinished argument
+bohot rota hu mein tere liye`,
+      note: "Chapter 01 • the words as written"
+    },
+    {
+      chapter: "The hard nights",
+      title: "When everything felt heavy",
+      text: `🥺🥺🥺
+shayad hi ham kabhi milenge firr
+😭😭
+tune muze rota chhod diya
+tune muze overthinking krte hue chhod diya
+tune aaaj ek ladke ko maar diya 🥺
+jo sirf tera tha
+
+u don't know how much pain i'm holding. pet mein dard hota hai, rona ata hai, sarrr toh itna dukhta hai ki words bhi kam pad jaate hain.
+
+i love uhh ek akhri maafi tumhe. i hope tum khush raho and take care of yourself.
+
+kisi ka kya kasur mene hi tere sare dukh mange the duwao mein mil gye plzzz stay happy u deserve better i loved uu and i love u always
+
+prr mene suna hai ki punar janam jaisa kuchh naii hota, agr hamne kisi ko kho diya toh hamne use anantkaal ke liye kho diya, hamesha ke liye i can't accept that but i need to accept it. u were my life, my everything
+
+i started to study for uhh mein 10 ghante padhai kr rha thaa pichle kuch dino se bcz i want uh
+
+🥺🥺🥺
+tuze yeh sbb mazak hi lagega`,
+      note: "Chapter 02 • a difficult moment"
+    },
+    {
+      chapter: "Our memories",
+      title: "Bohoot sapne the mere",
+      text: `bohot sapne the mere tere sath, sare adhure reh gye meri life mein ek hi moment hai sabse special jab mene tuze kiss kiya jis pyar se tu meri ankhon mein dekh rhi thi hamara handshake and tera bracelet sorry yaawr vo toh tut gya muzse prrr aaj bhi meri jeb mein rakhta hu vo har roj apne paassss rakhta hu and teri yaad ane prrr usko dekhta tha kisss krta tha, but i can't accept that ur no more mine i can't live without uhh
+tuze kyu nahi rha pyaar muzse abbb
+
+bhulna chahti hai tu muze
+bhool jaa
+vese bhi abb koi kyu hi yaad karega
+
+sorry for sending u my childhood pics, but yaarwr thoda toh farak padta hoga na tuze and always remember that this little child always loved uhh when u misss me see this images bagh mi lahan pani kiti radka hoto 😅😅 kharach yaarwr he lahan pnn ch chhan hot itk dukh nhvt, ik no one will misss me pn tu tari mla kayam laskhat thev`,
+      note: "Chapter 03 • the bracelet and childhood memories"
+    },
+    {
+      chapter: "The hard-to-say things",
+      title: "On my last night",
+      text: `on my last night i missed uhh so much
+i cried for uh
+muze khudke hi photo dekh ke ronaa aa rha hai ptaa naii kyu 🥹🥹 prrr pehle ki tarah bura naii lagg rha ywrr.
+
+i loved uhh always in my everything, ur my dream jo kabhii puri naii hui, khair isssss life mein meri naii hui toh kya hua agli baaar aungaaa sirf tera hoke...sirf tera
+tere liye mene puri duniya hi chhod dii yaarwr sacchii 😌😛
+
+prrr jab hamari akhri baar baat huii mein tumse i love uh naii sunn paya
+
+khair koi naii isss baar naii prrr agli baar jarur mere sare sapne pure hunge and u will be mine`,
+      note: "Chapter 04 • the feelings"
+    },
+    {
+      chapter: "Dadaji & Panjimay",
+      title: "I miss them so much",
+      text: `jab mere dadaji mare sabbb kuch sapne jesa hi lag rha tha mein phone dekh rha tha bahr kuch toh hua firr mein bahr ake beth gya firrr pta laga ki dadaji ko kuch hua hai toh hospital le gye but 10 minute mein papa vapas agye and gadi mein unki dead-body mene dekhi and muze vo sacchii sapna laga mtl b 5 min mein hi vo ja chuke the usss din unhone muze unka fav fruit hai ko toh idk name uska juice banake diya tha and sacchiii usi din dopeher ko bole the ki beta, apni mummy bohot mehnat krti hai kaam kiya kr uske tang mt krr unko krr aur padhai bhi krr zyada usi din like unko pta tha ki yeh hamari akhri baat hai
+
+and pta hai tbb shruti bhi thiii hamare yha and jab meri panjimay mari thii tbb toh uss raat vo 2 baje mari thii but 11 baje se hi unko dard ho rha tha bohot and chakkar aa re the do tin din se prr usss din really unko bohot taklif mein 3 ghante unke samne hi betha tha and uss raat sacchii unhone muzse bola ki mere pair chuo ek baar and firr vo har varr aise meri puri body prr hath
+
+vo meri puri body prr hath ghumati thiii toh uss baar bhi unhone vesa hi kiya prrr unka dard muze dekha nahi jaaa rha tha yaarwr 😭😭 and firr achanak 2 baje ke around sbb kuch shant hogya, unki ankhein band hogyi and vo bed pe so gyi hameshaa ke liye tbb mein pehli baar sabke samne roya tha aaaj bhi muze unki bohot yaad ati hai meri panjimay muzse bohot pyaar krti thii jb mein dharashiv jata tha toh vo ro ti thiii aur bolti thiii ek aur din ruko and unhone muze bohot ashirvaad diye the ki tu ek din bohor amir banega bohot bada banega --- shayad agle janam ke liye bola hoga i can't make her proud 😭😭 mein kitna bhi amir ban jau kya fayda dekhne ke liye vo nhi hai and pehle dadaji mare uske ek hi saal baad meri panjimaay marrr gyi 😭😭 i missss her so much yaawr
+
+prrr sabse jyada toh tumse hi mohobbat hai i wish meri panjimaay hamari shadi dekhti mein kitna bhi bada ban jau vo 2 din hamesha yaad rahenge muze, aaaj bhi muze aisa lagta hai ki vo bura sapna tha prr naii hai yawr i need to accept reality
+
+prrr unhone tumhe naii dekha yaawr kabhi 😭😭 na hi mere dada ji agr successful ho bhi gya toh kya faydaa`,
+      note: "Chapter 05 • family memories"
+    },
+    {
+      chapter: "Things left unsaid",
+      title: "Tu muze dekh payegi kya",
+      text: `tu muze dekh payegi kya prr akhri baar?? yarwr 🥲 meri shirt hai na tere paas sambhal ke rakhna jab tere bacche bade honge toh ek ko de dena use krne ke liye
+
+tu asay pahije hoti rao ith khup kahi rahun gel karaych
+
+prr yaawr kya karu accha toh lagta hai ywr 😊😘, pr sirf tu chahiye thi meri akhri wish bhi puri ho jati aur abb tumhe jo bhi ladka pyaar kare na usko bohot pyaar krna aur usko aise hurt mt krna jese mere dil ke sath kiya prr chhod na yaarwr tera kuchh kasoor naii hai meri hi galti thi and sorry for everything`,
+      note: "Chapter 06 • the things left unsaid"
+    },
+    {
+      chapter: "A note for her",
+      title: "Meri bacchiii thiii aditi 😘",
+      text: `the voice that disturbes u everyday will vanish soon
+i wanna whispher i love in ur ears a thousand times before death but leave itttt
+chhod vo topc
+bss abb kisi ko hurt mt krna aur apne liye ek bohot accha ladka choose krna
+
+never stop living ur life u always deserved someone better than me
+
+meri bacchiii thiii aditi 😘
+aaaaj sacchi yaarwr bohot accha lag rha hai aisa lag rha hai ki bsssss jor se hasu
+
+aur padhai kiya krrr acche marks ane chahiye tere abb 😊, make ur parents proud on uh
+i am superhero 😊🥰
+muze abbbb meri puri life yaaad aaa rhi hai`,
+      note: "Chapter 07 • your words"
+    },
+    {
+      chapter: "The final letter",
+      title: "For you, Aditi",
+      text: `meri bacchiii thiii aditi 😘
+
+I tried to say a lot, sometimes badly, sometimes with too many words, and sometimes while feeling everything at once. I wanted the small memories to matter: the bracelet, the photos, the way we looked at each other, and the moments that still live in my head.
+
+I hope you keep the good memories gently. Keep living your life, keep studying, and make your parents proud. You deserve peace, laughter, and people who care for you well.
+
+This page is a letter, not a promise or a demand. You don't have to answer it. I just wanted these words to have a place to stay.
+
+— from me, with care ♡`,
+      note: "A handwritten-style closing letter"
+    }
+  ];
+
+  let index = -1;
+  let busy = false;
+
+  function escapeHTML(value) {
+    return value
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function pageHTML(page, number) {
+    if (!page) {
+      return `
+        <div class="sheet-content">
+          <div class="flower">❀</div>
+          <div class="label">A story only we know</div>
+          <h2>For Aditi</h2>
+          <p class="sub">
+            Some feelings are too big for a chat bubble.<br>
+            This is a little place for them.
+          </p>
+          <button class="primary" id="openBook" type="button">
+            OPEN OUR STORY ↗
+          </button>
+        </div>
+        <div class="pageno">✦</div>`;
+    }
+
+    return `
+      <div class="sheet-content">
+        <div class="label">${escapeHTML(page.chapter)}</div>
+        <h2>${escapeHTML(page.title)}</h2>
+        <p class="text">${escapeHTML(page.text)}</p>
+        <p class="note">${escapeHTML(page.note)}</p>
+      </div>
+      <div class="pageno">${number}</div>`;
+  }
+
+  function render() {
+    const page = index < 0 ? null : pages[index];
+    const sheet = document.createElement("article");
+
+    sheet.className = "sheet" + (!page ? " cover" : "");
+    sheet.innerHTML = pageHTML(page, index + 1);
+    book.replaceChildren(sheet);
+
+    count.textContent = index < 0
+      ? "Cover"
+      : `${index + 1} / ${pages.length}`;
+
+    prev.disabled = index <= 0;
+
+    next.textContent = index >= pages.length - 1
+      ? "Back to cover ↺"
+      : "Turn page →";
+
+    chapters.querySelectorAll("button").forEach((button, i) => {
+      if (i === index) {
+        button.setAttribute("aria-current", "page");
+      } else {
+        button.removeAttribute("aria-current");
+      }
+    });
+
+    const openBook = $("openBook");
+    if (openBook) {
+      openBook.addEventListener("click", () => go(0));
+    }
+  }
+
+  function go(target) {
+    if (busy) return;
+
+    const newIndex = target >= pages.length
+      ? -1
+      : Math.max(-1, target);
+
+    if (newIndex === index) return;
+
+    const oldSheet = book.querySelector(".sheet");
+
+    if (
+      !oldSheet ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      index = newIndex;
+      render();
+      return;
+    }
+
+    busy = true;
+    oldSheet.classList.add("flipping");
+
+    setTimeout(() => {
+      index = newIndex;
+      render();
+      busy = false;
+    }, 450);
+  }
+
+  pages.forEach((page, i) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "chapter";
+    button.textContent = page.chapter;
+    button.addEventListener("click", () => go(i));
+    chapters.appendChild(button);
+  });
+
+  prev.addEventListener("click", () => go(index - 1));
+
+  next.addEventListener("click", () => {
+    go(index >= pages.length - 1 ? -1 : index + 1);
+  });
+
+  /*
+    THE IMPORTANT PART:
+    The opening button is clicked by the visitor.
+    That click starts the song before the intro disappears.
+    This is much more reliable than audible autoplay.
+  */
+  openStory.addEventListener("click", async () => {
+    openStory.disabled = true;
+    openStory.textContent = "OPENING YOUR STORY…";
+
+    try {
+      await audio.play();
+      musicBtn.textContent = "♫ Pause our song";
+    } catch (error) {
+      musicBtn.textContent = "♫ Tap to play";
+    }
+
+    intro.classList.add("hidden");
+    document.body.style.overflow = "";
+  });
+
+  musicBtn.addEventListener("click", async () => {
+    if (audio.paused) {
+      try {
+        await audio.play();
+        musicBtn.textContent = "♫ Pause our song";
+      } catch (error) {
+        musicBtn.textContent = "♫ Tap to play";
+      }
+    } else {
+      audio.pause();
+      musicBtn.textContent = "♫ Play our song";
+    }
+  });
+
+  audio.addEventListener("error", () => {
+    musicBtn.textContent = "♫ Check audio file";
+  });
+
+  audio.addEventListener("play", () => {
+    musicBtn.textContent = "♫ Pause our song";
+  });
+
+  audio.addEventListener("pause", () => {
+    musicBtn.textContent = "♫ Play our song";
+  });
+
+  // Floating hearts
+  const heartLayer = $("heartLayer");
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const symbols = ["♡", "♥", "✧"];
+
+    setInterval(() => {
+      if (document.hidden) return;
+
+      const heart = document.createElement("span");
+      heart.className = "float-heart";
+      heart.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+      heart.style.left = (5 + Math.random() * 90) + "%";
+      heart.style.fontSize = (12 + Math.random() * 14) + "px";
+      heart.style.setProperty(
+        "--duration",
+        (7 + Math.random() * 5) + "s"
+      );
+
+      heartLayer.appendChild(heart);
+      setTimeout(() => heart.remove(), 12500);
+    }, 1500);
+  }
+
+  // Photo lightbox
+  const lightbox = $("lightbox");
+  const lightboxImage = $("lightboxImage");
+
+  document.querySelectorAll(".polaroid img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+      lightbox.classList.add("visible");
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove("visible");
+  }
+
+  $("closeLightbox").addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", event => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeLightbox();
+
+    if (
+      event.target.matches("input, button") ||
+      !intro.classList.contains("hidden")
+    ) return;
+
+    if (event.key === "ArrowRight") {
+      go(index >= pages.length - 1 ? -1 : index + 1);
+    }
+
+    if (event.key === "ArrowLeft") {
+      go(index - 1);
+    }
+  });
+
+  // Render the first book cover.
+  render();
+})();
+</script>
+
+</body>
+</html>
